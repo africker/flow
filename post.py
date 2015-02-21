@@ -136,7 +136,8 @@ def driver(args, files, verbose=False):
 		dem_data = dem.getArray()
 		# flow accumulation
 		fa = Raster()
-		fa.read(f["fa"])
+		fa_path = os.path.join(args.flowaccum,f["fa"])
+		fa.read(fa_path)
 		fa_data = fa.getArray()
 		# process
 		output = arrayProcess(dem_data, fa_data)
