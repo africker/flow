@@ -5,7 +5,8 @@ Post process flow accumulation raster to fill areas where pits are located
 with the maximum value for flow accumulation.
 """
 
-import os, glob, re, sys
+import os, glob, re, sys, time
+
 try:
 	import numpy as np
 	from numpy.linalg import inv

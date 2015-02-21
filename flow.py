@@ -102,12 +102,12 @@ def area(cmd_dict):
  	return True
 
 def postprocess(cmd_dict):
-	if args.verbose:
+	if cmd_dict['verbose']:
 		print("Post processing to correct no data for flow accumulation at pits.")
 	cmd = "python post.py -d {input} -f {output}\\fa -o {output}\\ppfa".format(
 
 	)
-	commandline(cmd, args.verbose)
+	commandline(cmd, cmd_dict['verbose'])
 	return True
 
 def driver(args):
