@@ -91,7 +91,7 @@ def area(cmd_dict):
 def driver(args):
 	base = os.getcwd()
 	os.chdir(args.input)
-	files = glob.glob("*")
+	files = glob.glob("*.tif")
 	os.chdir(base)
 	# Make directories for output files
 	os.chdir(args.output)
