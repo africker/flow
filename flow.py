@@ -71,10 +71,10 @@ def rmPits(cmd_dict):
 def flowdir(cmd_dict):
 	if cmd_dict['method']==0:
 		cmd = "{exec}\\D8FlowDir.exe -fel {output}\\rmpit\\{file} -sd8 \
-{output}\\slope\\slope{scale}.tif -p {}\\fd\\fd{}.tif".format(**cmd_dict)
+{output}\\slope\\slope{scale}.tif -p {output}\\fd\\fd{scale}.tif".format(**cmd_dict)
 	else:
 		cmd = "{exec}\\DinfFlowDir.exe -fel {output}\\rmpit\\{file} -slp\
- {output}\\slope\\slope{scale}.tif -ang {}\\fd\\fd{}.tif".format(**cmd_dict)
+ {output}\\slope\\slope{scale}.tif -ang {output}\\fd\\fd{scale}.tif".format(**cmd_dict)
  	commandline(cmd)
  	return True
 
