@@ -40,12 +40,25 @@ def getArgs():
 
 	)
 	parser.add_argument(
+		"-p",
+		"--postprocess",
+		action = "store_true"
+		help = "Post process flow accumulation to correct no data pixels due to pit filling"
+	)
+	parser.add_argument(
 		"-v",
 		"--verbose",
 		action = "store_true",
 		help = "Print status updates while executing"
 	)
 	return parser.parse_args()
+
+def mkdir(dir):
+	try:
+		os.mkdir(dir)
+		return True
+	except:
+		return False
 
 def commandline(cmd, verbose=False):
 	if verbose:
@@ -88,12 +101,14 @@ def area(cmd_dict):
  	commandline(cmd, cmd_dict['verbose'])
  	return True
 
-def mkdir(dir):
-	try:
-		os.mkdir(dir)
-		return True
-	except:
-		return False
+def postprocess(cmd_dict):
+	if args.verbose:
+		print("Post processing to correct no data for flow accumulation at pits.")
+	cmd = "python post.py -d {input} -f {output}\\fa -o {output}\\ppfa".format(
+
+	)
+	commandline(cmd, args.verbose)
+	return True
 
 def driver(args):
 	base = os.getcwd()
@@ -107,7 +122,8 @@ def driver(args):
 	mkdir("fd")
 	mkdir("slope")
 	mkdir("fa")
-
+	if args.postprocess:
+		mkdir("ppfa")
 	os.chdir(base)
 	# run for each file at each scale
 	for f in files:
@@ -126,7 +142,11 @@ def driver(args):
 		rmPits(cmd_dict)
 		flowdir(cmd_dict)
 		area(cmd_dict)
+	if args.postprocess:
+		postprocess(args)
 	return True
+
+
 
 def main():
 	t_i = time.time()
