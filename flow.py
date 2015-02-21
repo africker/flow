@@ -52,7 +52,7 @@ def commandline(cmd, verbose=False):
 		print(cmd)
 	#cmd_args = shlex.split(cmd)
 	stdout, stderr = sp.Popen(
-		cmd_args,
+		cmd,
 		stdin = sp.PIPE,
 		stdout = sp.PIPE,
 		stderr = sp.PIPE
