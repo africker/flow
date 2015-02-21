@@ -65,7 +65,7 @@ def rmPits(cmd_dict):
 	cmd = "{exec}\\PitRemove.exe -z {input}\\{file} -fel {output}\\rmpit\\{file}".format(
 		**cmd_dict
 	)
-	commandline(cmd)
+	commandline(cmd, cmd_dict['verbose'])
 	return True	
 
 def flowdir(cmd_dict):
@@ -75,7 +75,7 @@ def flowdir(cmd_dict):
 	else:
 		cmd = "{exec}\\DinfFlowDir.exe -fel {output}\\rmpit\\{file} -slp\
  {output}\\slope\\slope{scale}.tif -ang {output}\\fd\\fd{scale}.tif".format(**cmd_dict)
- 	commandline(cmd)
+ 	commandline(cmd, cmd_dict['verbose'])
  	return True
 
 def area(cmd_dict):
@@ -85,7 +85,7 @@ def area(cmd_dict):
 	else:
 		cmd = "{exec}\\AreaDinf.exe -ang {output}\\fd\\fd{scale}.tif\
  -sca {output}\\fa\\fa{scale}.tif".format(**cmd_dict)
- 	commandline(cmd)
+ 	commandline(cmd, cmd_dict['verbose'])
  	return True
 
 def mkdir(dir):
@@ -107,7 +107,7 @@ def driver(args):
 	mkdir("fd")
 	mkdir("slope")
 	mkdir("fa")
-	
+
 	os.chdir(base)
 	# run for each file at each scale
 	for f in files:
@@ -120,7 +120,8 @@ def driver(args):
 			'output':args.output,
 			'file':f,
 			'scale':scale,
-			'method':args.method
+			'method':args.method,
+			'verbose':args.verbose
 		}
 		rmPits(cmd_dict)
 		flowdir(cmd_dict)
