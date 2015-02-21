@@ -3,7 +3,7 @@
 """
 C:\Program Files\TauDEM\TauDEM5Exe
 """
-import argparse, subprocess, os, sys, time, glob, shlex, re
+import argparse, subprocess as sp, os, sys, time, glob, shlex, re
 
 def getArgs():
 	parser = argparse.ArgumentParser(
