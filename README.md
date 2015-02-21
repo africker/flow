@@ -1,7 +1,7 @@
 Introduction
 ------------
 
-Flow is a python pipeline that uses the Windows executables of Terrain Analysis Using Digital Elevation Models (<a href="http://hydrology.usu.edu/taudem/taudem5/index.html">TauDEM</a>) to calculate flow accumulation for the multiscale elevation output of <a href="https://github.com/jeffreywolf/surface">Surface Analysis Tools (e.g. surface.py)</a>. <a href="http://hydrology.usu.edu/taudem/taudem5/index.html">TauDEM</a> is a fast parallel implementation of a large suite of hydrology tools. This wrapper facilitates calculation of Flow Accumulation using either the D8 or the D-infinity algorithm (Tarboton) at multiple spatial scales. 
+Flow is a python pipeline that uses the Windows executables of Terrain Analysis Using Digital Elevation Models (<a href="http://hydrology.usu.edu/taudem/taudem5/index.html">TauDEM</a>)(Tesfa et al. 2011) to calculate flow accumulation for the multiscale elevation output of <a href="https://github.com/jeffreywolf/surface">Surface Analysis Tools (e.g. surface.py)</a>. <a href="http://hydrology.usu.edu/taudem/taudem5/index.html">TauDEM</a> is a fast parallel implementation of a large suite of hydrology tools. This wrapper facilitates calculation of Flow Accumulation using either the D8 or the D-infinity algorithm (Tarboton 1997) at multiple spatial scales. 
 
 Notes
 -----
