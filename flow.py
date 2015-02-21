@@ -42,7 +42,7 @@ def getArgs():
 	parser.add_argument(
 		"-p",
 		"--postprocess",
-		action = "store_true"
+		action = "store_true",
 		help = "Post process flow accumulation to correct no data pixels due to pit filling"
 	)
 	parser.add_argument(
