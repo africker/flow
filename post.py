@@ -165,7 +165,7 @@ def main():
 		scale = re.findall(r'\d+', fa)[0]
 		files[scale]['fa']=fa
 	os.chdir(base)
-	driver(args, files, args.verbosep)
+	driver(args, files, args.verbose)
 
 	t_f = time.time()
 	print("Total elapsed time is {} s".format((t_f-t_i)/60.))
