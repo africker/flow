@@ -1,0 +1,12 @@
+#Ignore OS files
+.DS_Store
+.Trashes
+.Spotlight-*
+
+# Other
+*.pyc
+*.aux.xml
+
+# Folders
+input
+output
