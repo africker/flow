@@ -57,7 +57,7 @@ def commandline(cmd, verbose=False):
 		stdout = sp.PIPE,
 		stderr = sp.PIPE
 	).communicate()
-	if self.args.verbose:
+	if verbose:
 		print stdout, stderr
 	return True
 
