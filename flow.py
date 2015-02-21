@@ -88,6 +88,13 @@ def area(cmd_dict):
  	commandline(cmd)
  	return True
 
+def mkdir(dir):
+	try:
+		os.mkdir(dir)
+		return True
+	except:
+		return False
+
 def driver(args):
 	base = os.getcwd()
 	os.chdir(args.input)
@@ -96,11 +103,11 @@ def driver(args):
 	# Make directories for output files
 	os.chdir(args.output)
 	# intermediate files
-	os.mkdir("rmpit")
-	os.mkdir("fd")
-	os.mkdir("slope")
-	# Desired files
-	os.mkdir("fa")
+	mkdir("rmpit")
+	mkdir("fd")
+	mkdir("slope")
+	mkdir("fa")
+	
 	os.chdir(base)
 	# run for each file at each scale
 	for f in files:
