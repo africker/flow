@@ -105,7 +105,7 @@ def postprocess(cmd_dict):
 	if cmd_dict['verbose']:
 		print("Post processing to correct no data for flow accumulation at pits.")
 	cmd = "python post.py -d {input} -f {output}\\fa -o {output}\\ppfa".format(
-
+		cmd_dict
 	)
 	commandline(cmd, cmd_dict['verbose'])
 	return True
