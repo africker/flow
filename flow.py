@@ -143,7 +143,7 @@ def driver(args):
 		flowdir(cmd_dict)
 		area(cmd_dict)
 	if args.postprocess:
-		postprocess(args)
+		postprocess(cmd_dict)
 	return True
 
 
