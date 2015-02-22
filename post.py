@@ -121,7 +121,9 @@ class Raster(object):
 
 def arrayProcess(dem, fa):
 	output = fa.copy()
-	output[np.isnan(dem)!=np.isnan(fa)]=max(fa)
+	maximum = np.max(fa[~np.isnan(fa)])
+	index = ~np.isnan(dem)==np.isnan(fa)
+	output[index]=maximum
 	return output
 
 
@@ -141,7 +143,7 @@ def driver(args, files, verbose=False):
 		fa_data = fa.getArray()
 		# process
 		output = arrayProcess(dem_data, fa_data)
-		output_path = os.join.path(args.output, f["fa"])
+		output_path = os.path.join(args.output, f["fa"])
 		dem.write(output, output_path)
 		dem.close()
 		fa.close()
